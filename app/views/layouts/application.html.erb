@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<%= js extend_gritter :position => "bottom_right" %>
+<% if flash[:notice] %>
+  <%= js add_gritter(flash[:notice], :image => :success, :nodom_wrap  => true) %>
+<% elsif flash[:error] %>
+  <%= js add_gritter(flash[:error], :image => :error, :title => "Error", :nodom_wrap  => true) %>
+<% end %>
+
 <%= yield %>
 
 </body>
